@@ -11,6 +11,7 @@ services:
       - env/local.env
     ports:
       - "10999:10999/udp"
+      - "10888:10888/udp"
     volumes:
       - type: volume
         source: data
