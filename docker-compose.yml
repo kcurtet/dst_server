@@ -20,8 +20,8 @@ services:
         target: /opt/storage/
   caves:
     image: yeetzone/dontstarvetogether
-    container_name: world
-    hostname: world
+    container_name: caves
+    hostname: caves
     depends_on:
       - data
       - world
