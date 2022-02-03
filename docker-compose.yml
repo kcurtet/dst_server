@@ -7,8 +7,8 @@ services:
     depends_on:
       - data
     env_file:
-      - world.env
-      - local.env
+      - env/world.env
+      - env/local.env
     ports:
       - "10999:10999/udp"
     volumes:
@@ -26,8 +26,8 @@ services:
       - data
       - world
     env_file:
-      - caves.env
-      - local.env
+      - env/caves.env
+      - env/local.env
     ports:
       - "10998:10998/udp"
     volumes:
