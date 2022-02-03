@@ -18,6 +18,25 @@ services:
       - type: volume
         source: storage
         target: /opt/storage/
+  caves:
+    image: yeetzone/dontstarvetogether
+    container_name: world
+    hostname: world
+    depends_on:
+      - data
+      - world
+    env_file:
+      - caves.env
+      - local.env
+    ports:
+      - "10998:10998/udp"
+    volumes:
+      - type: volume
+        source: data
+        target: /data
+      - type: volume
+        source: storage
+        target: /opt/storage/
   data:
     image: yeetzone/dontstarvetogether-data
     volumes:
