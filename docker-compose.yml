@@ -2,7 +2,7 @@ version: "3.9"
 services:
   overworld:
     image: yeetzone/dontstarvetogether
-    container_name: overworld
+    container_name: ${PROJECT_NAME}_overworld
     hostname: overworld
     depends_on:
       - data
@@ -17,7 +17,7 @@ services:
         target: /data
   underworld:
     image: yeetzone/dontstarvetogether
-    container_name: underworld
+    container_name: ${PROJECT_NAME}_underworld
     hostname: underworld
     depends_on:
       - data
