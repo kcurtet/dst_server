@@ -1,43 +1,35 @@
 version: "3.9"
 services:
-  world:
+  overworld:
     image: yeetzone/dontstarvetogether
-    container_name: world
-    hostname: world
+    container_name: overworld
+    hostname: overworld
     depends_on:
       - data
     env_file:
-      - env/world.env
-      - env/local.env
+      - overworld.env
+      - local.env
     ports:
       - "10999:10999/udp"
-      - "10888:10888/udp"
     volumes:
       - type: volume
         source: data
         target: /data
-      - type: volume
-        source: storage
-        target: /opt/storage/
-  caves:
+  underworld:
     image: yeetzone/dontstarvetogether
-    container_name: caves
-    hostname: caves
+    container_name: underworld
+    hostname: underworld
     depends_on:
       - data
-      - world
     env_file:
-      - env/caves.env
-      - env/local.env
+      - underworld.env
+      - local.env
     ports:
-      - "10998:10998/udp"
+      - "11000:11000/udp"
     volumes:
       - type: volume
         source: data
         target: /data
-      - type: volume
-        source: storage
-        target: /opt/storage/
   data:
     image: yeetzone/dontstarvetogether-data
     volumes:
@@ -46,4 +38,3 @@ services:
         target: /data
 volumes:
   data:
-  storage:
